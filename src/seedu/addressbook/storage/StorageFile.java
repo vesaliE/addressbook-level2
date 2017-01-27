@@ -90,9 +90,14 @@ public class StorageFile {
      * Saves all data to this storage file.
      *
      * @throws StorageOperationException if there were errors converting and/or storing data to file.
+     * 
      */
-    public void save(AddressBook addressBook) throws StorageOperationException {
-
+    public void save(AddressBook addressBook) throws StorageOperationException{
+        
+        if(!path.toFile().isFile()){
+            throw new StorageOperationException("File not found: " + path);
+        }
+        
         /* Note: Note the 'try with resource' statement below.
          * More info: https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
          */
@@ -147,6 +152,7 @@ public class StorageFile {
         } catch (IllegalValueException ive) {
             throw new StorageOperationException("File contains illegal data values; data type constraints not met");
         }
+        
     }
 
     public String getPath() {

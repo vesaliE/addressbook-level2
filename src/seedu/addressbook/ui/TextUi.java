@@ -2,6 +2,7 @@ package seedu.addressbook.ui;
 
 import static seedu.addressbook.common.Messages.*;
 
+import seedu.addressbook.ui.Formatter;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 

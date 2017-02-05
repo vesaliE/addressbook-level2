@@ -5,7 +5,9 @@ import seedu.addressbook.data.person.UniquePersonList.*;
 import seedu.addressbook.data.tag.UniqueTagList;
 import seedu.addressbook.data.tag.UniqueTagList.*;
 import seedu.addressbook.data.tag.Tag;
+import seedu.addressbook.data.tag.Tagging;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -22,13 +24,15 @@ public class AddressBook {
 
     private final UniquePersonList allPersons;
     private final UniqueTagList allTags; // can contain tags not attached to any person
-
+    private final ArrayList<Tagging> tagList; 
+    
     /**
      * Creates an empty address book.
      */
     public AddressBook() {
         allPersons = new UniquePersonList();
         allTags = new UniqueTagList();
+        tagList = new ArrayList<Tagging>();
     }
 
     /**
@@ -41,6 +45,7 @@ public class AddressBook {
     public AddressBook(UniquePersonList persons, UniqueTagList tags) {
         this.allPersons = new UniquePersonList(persons);
         this.allTags = new UniqueTagList(tags);
+        this.tagList = new ArrayList<Tagging>();
         for (Person p : allPersons) {
             syncTagsWithMasterList(p);
         }
@@ -89,6 +94,16 @@ public class AddressBook {
     public void addTag(Tag toAdd) throws DuplicateTagException {
         allTags.add(toAdd);
     }
+    
+    /**
+     * Adds a tag to the person if newly added in the address book.
+     *
+     */
+    public void addTagForPerson(Tag tag, Person person){
+        Tagging newTag = new Tagging(true, tag, person);
+        tagList.add(newTag);
+    }
+
 
     /**
      * Checks if an equivalent person exists in the address book.
@@ -104,6 +119,14 @@ public class AddressBook {
         return allTags.contains(key);
     }
 
+    /**
+     * Removes a tag to the person if deleted in the address book.
+     *
+     */
+    public void removeTagForPerson(Tag tag, Person person){
+        Tagging newTag = new Tagging(false, tag, person);
+        tagList.add(newTag);
+    }
     /**
      * Removes the equivalent person from the address book.
      *

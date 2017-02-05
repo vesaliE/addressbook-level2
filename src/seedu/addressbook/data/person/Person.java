@@ -29,7 +29,6 @@ public class Person implements ReadOnlyPerson {
         this.address = address;
         this.tags = new UniqueTagList(tags); // protect internal tags from changes in the arg list
         this.setSequenceNumber(nextSequenceNumber); 
-        System.out.println(nextSequenceNumber);
         nextSequenceNumber++; 
     }
 

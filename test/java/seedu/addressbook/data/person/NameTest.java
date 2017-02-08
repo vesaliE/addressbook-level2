@@ -11,9 +11,29 @@ public class NameTest {
 
     @Test
     public void isSimilar_null_returnFalse() {
-        Name testName = null; 
+        Name testName = null;
+        try {
+            testName = new Name("Ellango Vesali");
+        } catch (IllegalValueException e) {
+            e.printStackTrace();
+        } 
         Name other = null;
         assertFalse(testName.isSimilar(other));
     }
+    
+    @Test
+    public void isSimilar_sameName_returnTrue() {
+        Name testName = null;
+        Name other = null;
+        try {
+            testName = new Name("Ellango Vesali");
+            other = new Name ("Ellango Vesali");
+        } catch (IllegalValueException e) {
+            e.printStackTrace();
+        } 
+        assertTrue(testName.isSimilar(other));
+    }
+    
+    
 
 }

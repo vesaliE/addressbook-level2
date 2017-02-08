@@ -34,6 +34,19 @@ public class NameTest {
         assertTrue(testName.isSimilar(other));
     }
     
+    @Test
+    public void isSimilar_differentCase_returnTrue() {
+        Name testName = null;
+        Name other = null;
+        try {
+            testName = new Name("Ellango Vesali");
+            other = new Name ("ellAngo VeSali");
+        } catch (IllegalValueException e) {
+            e.printStackTrace();
+        } 
+        assertTrue(testName.isSimilar(other));
+    }
+    
     
 
 }

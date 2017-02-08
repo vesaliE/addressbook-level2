@@ -52,14 +52,14 @@ public class Name {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Name // instanceof handles nulls
-                && this.fullName.equals(((Name) other).fullName)); // state check
+                        && this.fullName.equals(((Name) other).fullName)); // state check
     }
 
     @Override
     public int hashCode() {
         return fullName.hashCode();
     }
-    
+
     /**
      * Returns true of the other name is very similar to this name.
      * Two names are considered similar if they are the same, have the same 
@@ -68,33 +68,42 @@ public class Name {
      * @param other name that is to be compared with current user's name
      * 
      */
-     public boolean isSimilar(Name other) {
-         if(other == null){
-             return false; 
-         }
-         if(this.equals(other)){
-             return true;
-         }
-         
-         String otherName = other.toString().toLowerCase();
-         String thisName = this.toString().toLowerCase(); 
-         
-         if(thisName.equals(otherName)){
-             return true;
-         }
-         String[] splitCurrentName = this.toString().toLowerCase().split(" ");
-         String[] splitOtherName = other.toString().toLowerCase().split(" ");
-         
-         for(String otherNameTest : splitOtherName){
-             for(String nameTest: splitCurrentName){
-                 if(otherNameTest.equals(nameTest)){
-                     return true; 
-                 }
-             }
-         }
-         
-         return false;
-         
-     }
+    public boolean isSimilar(Name other) {
+        if(other == null){
+            return false; 
+        }
+        if(this.equals(other)){
+            return true;
+        }
+
+        String otherName = other.toString().toLowerCase();
+        String thisName = this.toString().toLowerCase(); 
+
+        if(thisName.equals(otherName)){
+            return true;
+        }
+       
+        isSameFirstOrLastName(other);
+
+        return false;
+
+    }
+
+    /**
+     * @param other
+     */
+    private boolean isSameFirstOrLastName(Name other) {
+        String[] splitCurrentName = this.toString().toLowerCase().split(" ");
+        String[] splitOtherName = other.toString().toLowerCase().split(" ");
+
+        for(String otherNameTest : splitOtherName){
+            for(String nameTest: splitCurrentName){
+                if(otherNameTest.equals(nameTest)){
+                    return true; 
+                }
+            }
+        }
+        return false; 
+    }
 
 }

@@ -10,9 +10,14 @@ import seedu.addressbook.data.exception.IllegalValueException;
 public class NameTest {
 
     @Test
-    public void isSimilar_null_returnFalse() throws IllegalValueException {
-        Name other = new Name ("null");
-        assertFalse(Name.isSimilar(other));
+    public void isSimilar_null_returnFalse() {
+        try{
+            Name other = new Name (null);
+            assertFalse(Name.isSimilar(other));
+        }
+        catch(IllegalValueException e ){
+            System.out.println("Illegal value");
+        }
     }
 
 }

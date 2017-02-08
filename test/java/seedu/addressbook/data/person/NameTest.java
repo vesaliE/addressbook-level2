@@ -60,6 +60,19 @@ public class NameTest {
         assertFalse(testName.isSimilar(other));
     }
     
+    @Test
+    public void isSimilar_subsetOfFirstName_returnFalse() {
+        Name testName = null;
+        Name other = null;
+        try {
+            testName = new Name("Emily Koh");
+            other = new Name ("Emily Goh");
+        } catch (IllegalValueException e) {
+            e.printStackTrace();
+        } 
+        assertTrue(testName.isSimilar(other));
+    }
+    
     
 
 }

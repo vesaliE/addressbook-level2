@@ -59,6 +59,7 @@ public class Name {
     public int hashCode() {
         return fullName.hashCode();
     }
+    
     /**
      * Returns true of the other name is very similar to this name.
      * Two names are considered similar if ...
@@ -66,6 +67,5 @@ public class Name {
      public boolean isSimilar(Name other) {
          return false; 
      }
-
 
 }

@@ -61,12 +61,25 @@ public class NameTest {
     }
     
     @Test
-    public void isSimilar_subsetOfFirstName_returnFalse() {
+    public void isSimilar_sameFirstName_returnFalse() {
         Name testName = null;
         Name other = null;
         try {
             testName = new Name("Emily Koh");
             other = new Name ("Emily Goh");
+        } catch (IllegalValueException e) {
+            e.printStackTrace();
+        } 
+        assertTrue(testName.isSimilar(other));
+    }
+    
+    @Test
+    public void isSimilar_sameLastName_returnFalse() {
+        Name testName = null;
+        Name other = null;
+        try {
+            testName = new Name("Emily Koh");
+            other = new Name ("Gerald Koh");
         } catch (IllegalValueException e) {
             e.printStackTrace();
         } 

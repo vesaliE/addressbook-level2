@@ -65,7 +65,10 @@ public class Name {
      * Two names are considered similar if ...
      */
      public static boolean isSimilar(Name other) {
-         return false; 
+         if(other == null){
+             return false; 
+         } 
+         return true;
      }
 
 }

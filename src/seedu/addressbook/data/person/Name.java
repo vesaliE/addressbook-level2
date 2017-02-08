@@ -62,7 +62,11 @@ public class Name {
     
     /**
      * Returns true of the other name is very similar to this name.
-     * Two names are considered similar if ...
+     * Two names are considered similar if they are the same, have the same 
+     * first or last names and have different casing.
+     * 
+     * @param other name that is to be compared with current user's name
+     * 
      */
      public boolean isSimilar(Name other) {
          if(other == null){

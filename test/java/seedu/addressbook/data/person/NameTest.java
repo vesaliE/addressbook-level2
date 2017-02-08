@@ -47,6 +47,19 @@ public class NameTest {
         assertTrue(testName.isSimilar(other));
     }
     
+    @Test
+    public void isSimilar_differentName_returnFalse() {
+        Name testName = null;
+        Name other = null;
+        try {
+            testName = new Name("Ellango Vesali");
+            other = new Name ("Emily");
+        } catch (IllegalValueException e) {
+            e.printStackTrace();
+        } 
+        assertFalse(testName.isSimilar(other));
+    }
+    
     
 
 }

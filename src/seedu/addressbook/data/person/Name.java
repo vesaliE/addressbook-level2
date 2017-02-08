@@ -71,7 +71,15 @@ public class Name {
          if(this.equals(other)){
              return true;
          }
-         return true;
+         
+         String otherName = other.toString().toLowerCase();
+         String thisName = this.toString().toLowerCase(); 
+         
+         if(thisName.equals(otherName)){
+             return true;
+         }
+         return false;
+         
      }
 
 }

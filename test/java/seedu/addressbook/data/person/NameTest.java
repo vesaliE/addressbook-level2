@@ -1,14 +1,18 @@
 package seedu.addressbook.data.person;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import seedu.addressbook.data.exception.IllegalValueException;
 
 public class NameTest {
 
     @Test
-    public void test() {
-        fail("Not yet implemented");
+    public void isSimilar_null_returnFalse() throws IllegalValueException {
+        Name other = new Name ("null");
+        assertFalse(Name.isSimilar(other));
     }
 
 }

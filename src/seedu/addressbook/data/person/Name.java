@@ -78,6 +78,17 @@ public class Name {
          if(thisName.equals(otherName)){
              return true;
          }
+         String[] splitCurrentName = this.toString().toLowerCase().split(" ");
+         String[] splitOtherName = other.toString().toLowerCase().split(" ");
+         
+         for(String otherNameTest : splitOtherName){
+             for(String nameTest: splitCurrentName){
+                 if(otherNameTest.equals(nameTest)){
+                     return true; 
+                 }
+             }
+         }
+         
          return false;
          
      }

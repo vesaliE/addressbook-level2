@@ -76,17 +76,30 @@ public class Name {
             return true;
         }
 
+        if(isSameNameWithDifferentCase(other)){
+            return true;
+        }
+       
+        if(isSameFirstOrLastName(other)){
+            return true;
+        }
+
+        return false;
+
+    }
+
+    /**
+     * @param other
+     */
+    private boolean isSameNameWithDifferentCase(Name other) {
         String otherName = other.toString().toLowerCase();
         String thisName = this.toString().toLowerCase(); 
 
         if(thisName.equals(otherName)){
             return true;
         }
-       
-        isSameFirstOrLastName(other);
-
+        
         return false;
-
     }
 
     /**
